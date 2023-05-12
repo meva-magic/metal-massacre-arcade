@@ -16,6 +16,8 @@ public class Tail : MonoBehaviour
     public float wiggleMagnitude;
     public Transform wiggleDir;
 
+    public Transform tailEnd;
+
     public Vector3[] segmentPoses;
     private Vector3[] segmentV;
 
@@ -39,5 +41,7 @@ public class Tail : MonoBehaviour
         }
 
         lineRend.SetPositions(segmentPoses);
+
+        tailEnd.position = segmentPoses[segmentPoses.Length - 1];
     }
 }
