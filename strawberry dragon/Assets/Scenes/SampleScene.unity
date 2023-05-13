@@ -249,8 +249,9 @@ GameObject:
   m_Component:
   - component: {fileID: 723367017}
   - component: {fileID: 723367016}
+  - component: {fileID: 723367018}
   m_Layer: 0
-  m_Name: tail
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,13 +317,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723367015}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: -0.0002638227}
-  m_LocalPosition: {x: 1.3212175, y: 0.13216335, z: -2.17}
+  m_LocalPosition: {x: 1.792, y: 0.475, z: -2.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 192710449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &723367018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723367015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce328d8518c6f240954e2a157a7eef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2000
+  target: {fileID: 192710449}
 --- !u!1 &1783318939
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 4f23dbcfdb5e9854bac735db423b3b3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -434,6 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842742041}
   - component: {fileID: 1842742042}
+  - component: {fileID: 1842742043}
   m_Layer: 0
   m_Name: front
   m_TagString: Untagged
@@ -508,6 +524,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1842742043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842742040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce328d8518c6f240954e2a157a7eef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  target: {fileID: 1951282765}
 --- !u!1 &1852732876
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a333e89f396351b4a850bf8ec23ee544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 5
+  length: 20
   lineRend: {fileID: 1951282767}
   targetDir: {fileID: 192710449}
   targetDist: 0.2
