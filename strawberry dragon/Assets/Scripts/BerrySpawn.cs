@@ -15,9 +15,6 @@ public class BerrySpawn : MonoBehaviour
 
     }
 
-   
-
-    // Update is called once per frame
     void Update()
     {
         
