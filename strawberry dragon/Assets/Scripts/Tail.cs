@@ -17,6 +17,8 @@ public class Tail : MonoBehaviour
     public Transform wiggleDir;
 
     public Transform tailEnd;
+    
+    //public Transform[] bodyParts;
 
     public Vector3[] segmentPoses;
     private Vector3[] segmentV;
@@ -38,10 +40,13 @@ public class Tail : MonoBehaviour
         for (int i = 1; i < segmentPoses.Length; i++)
         {
             segmentPoses[i] = Vector3.SmoothDamp(segmentPoses[i], segmentPoses[i - 1] + targetDir.right * targetDist, ref segmentV[i], smoothSpeed + i / trailSpeed);
+
+            //bodyParts[i - 1].Transform.position = segmentPoses[i];
+
         }
 
         lineRend.SetPositions(segmentPoses);
 
-        tailEnd.position = segmentPoses[segmentPoses.Length - 1];
+        tailEnd.position = segmentPoses[segmentPoses.Length - 2];
     }
 }
