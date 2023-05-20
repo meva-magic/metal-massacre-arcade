@@ -47,6 +47,6 @@ public class Tail : MonoBehaviour
 
         lineRend.SetPositions(segmentPoses);
 
-        tailEnd.position = segmentPoses[segmentPoses.Length - 2];
+        tailEnd.position = segmentPoses[segmentPoses.Length - 1];
     }
 }
