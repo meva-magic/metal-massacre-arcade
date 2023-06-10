@@ -5,18 +5,28 @@ using UnityEngine;
 public class BerrySpawn : MonoBehaviour
 {
 
-    public GameObject[] objects;
+    public GameObject[] berries;
+    public List<Transform> spawnPoints;
 
     void Start()
     {
-        
-        int rand = Random.Range(0, objects.Length);
-        Instantiate(objects[rand], transform.position, Quaternion.identity);
+        spawnPoints = new List<Transform>(spawnPoints);
+        SpawnBerries();
+
+        //int rand = Random.Range(0, objects.Length);
+        //Instantiate(objects[rand], transform.position, Quaternion.identity);
 
     }
 
-    void Update()
+    void SpawnBerries()
     {
+
+        for ( int i = 0; i < berries.Length; i++)
+        {
+            var spawn = Random.Range(0, spawnPoints.Count);
+            Instantiate(berries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
+            spawnPoints.RemoveAt(spawn);
+        }
         
     }
 }

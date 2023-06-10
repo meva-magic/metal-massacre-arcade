@@ -322,9 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1 &80430154
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,9 +368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1001 &97958964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,9 +638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1 &192387596
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,9 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1 &192710448
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,9 +799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!4 &406431048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5353378803261321550, guid: 0126c61e294aa08428808db41fd64c59, type: 3}
@@ -865,7 +860,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.735092
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1233,9 +1228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1 &1184707133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,9 +1319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!1 &1296929266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,9 +1365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
-  - {fileID: 3567864914920484178, guid: c537253b2b678754b887418329c17732, type: 3}
+  berries: []
+  spawnPoints: []
 --- !u!4 &1362990829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5353378803261321550, guid: 0126c61e294aa08428808db41fd64c59, type: 3}
@@ -1574,8 +1566,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4074eaece74e03f419e4c6e226454189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects:
+  berries:
   - {fileID: 250351895378730641, guid: fa80102decda39d4fbde0ca655aefa14, type: 3}
+  spawnPoints:
+  - {fileID: 1113721018}
+  - {fileID: 45015626}
+  - {fileID: 192387597}
+  - {fileID: 1296929267}
+  - {fileID: 326794948}
+  - {fileID: 1276684563}
+  - {fileID: 189380266}
+  - {fileID: 80430155}
 --- !u!1 &1705308031
 GameObject:
   m_ObjectHideFlags: 0
