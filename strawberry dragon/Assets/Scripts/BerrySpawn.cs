@@ -8,7 +8,7 @@ public class BerrySpawn : MonoBehaviour
     public GameObject[] berries;
     public List<Transform> spawnPoints;
 
-    void Start()
+    public void Start()
     {
         spawnPoints = new List<Transform>(spawnPoints);
         SpawnBerries();
@@ -18,7 +18,7 @@ public class BerrySpawn : MonoBehaviour
 
     }
 
-    void SpawnBerries()
+    public void SpawnBerries()
     {
 
         for ( int i = 0; i < berries.Length; i++)

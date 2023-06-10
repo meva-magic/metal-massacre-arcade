@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
+    private PointManager pointManager;
+    BerrySpawn berrySpawn;
+
     private Shake shake;
 
     private void Start()
     {
+
+        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+
+        berrySpawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<BerrySpawn>();
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
@@ -21,12 +28,17 @@ public class PlayerCollision : MonoBehaviour
         {
             shake.CamShake();
 
-            Destroy(gameObject);
+            Time.timeScale = 0;
+
         }
 
         if(collision.collider.gameObject.tag == "Berry")
         {   
+            pointManager.UpdateScore(1);
+
             Destroy(collision.collider.gameObject);
+
+            berrySpawn.SpawnBerries();
         }
 
     }
