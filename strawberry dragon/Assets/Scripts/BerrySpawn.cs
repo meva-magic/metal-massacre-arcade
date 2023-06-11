@@ -13,9 +13,6 @@ public class BerrySpawn : MonoBehaviour
         spawnPoints = new List<Transform>(spawnPoints);
         SpawnBerries();
 
-        //int rand = Random.Range(0, objects.Length);
-        //Instantiate(objects[rand], transform.position, Quaternion.identity);
-
     }
 
     public void SpawnBerries()
