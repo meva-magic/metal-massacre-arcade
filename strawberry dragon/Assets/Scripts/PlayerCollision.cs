@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public GameObject effect;
+    public GameObject bloodStain;
 
     PointManager pointManager;
     BerrySpawn berrySpawn;
     Tail tail;
+    PauseMenu pauseMenu;
 
     private Shake shake;
 
     private void Start()
     {
+
 
         pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 
@@ -30,14 +34,16 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "Wall")
         {
             shake.CamShake();
-
             Time.timeScale = 0;
-
         }
 
         if(collision.collider.gameObject.tag == "Berry")
         {   
+            shake.CamShake();
             pointManager.UpdateScore(1);
+
+            Instantiate(effect, transform.position, Quaternion.identity);
+            Instantiate(bloodStain, transform.position, Quaternion.identity);
 
             Destroy(collision.collider.gameObject);
 

@@ -4,17 +4,41 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    void PauseGame()
+
+    private bool isPaused;
+    public GameObject Pause;
+
+    void Update()
+    {
+        if(Input.GetButtonDown("Pause"))
+        {
+            if(isPaused)
+            {
+                ResumeGame();
+            }
+
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    public void PauseGame()
     {
 
         Time.timeScale = 0;
+        Pause.SetActive(true);
+        isPaused = true;
         
     }
 
-    void ResumeGame()
+    public void ResumeGame()
     {
 
         Time.timeScale = 1;
+        Pause.SetActive(false);
+        isPaused = false;
         
     }
 }
