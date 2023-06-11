@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tail : MonoBehaviour
 {
     public int length;
+    public int newChains;
+
     public LineRenderer lineRend;
 
     public Transform targetDir;
@@ -31,6 +33,14 @@ public class Tail : MonoBehaviour
         segmentV = new Vector3[length];
     }
 
+    public void AddLength()
+    {
+        length += newChains;
+        lineRend.positionCount = length;
+        segmentPoses = new Vector3[length];
+        segmentV = new Vector3[length];
+    }
+
     private void Update()
     {
         wiggleDir.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude);
@@ -41,12 +51,11 @@ public class Tail : MonoBehaviour
         {
             segmentPoses[i] = Vector3.SmoothDamp(segmentPoses[i], segmentPoses[i - 1] + targetDir.right * targetDist, ref segmentV[i], smoothSpeed + i / trailSpeed);
 
-            //bodyParts[i - 1].Transform.position = segmentPoses[i];
-
         }
 
         lineRend.SetPositions(segmentPoses);
 
         tailEnd.position = segmentPoses[segmentPoses.Length - 1];
     }
+
 }

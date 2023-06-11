@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
-    private PointManager pointManager;
+    PointManager pointManager;
     BerrySpawn berrySpawn;
+    Tail tail;
 
     private Shake shake;
 
@@ -16,6 +17,8 @@ public class PlayerCollision : MonoBehaviour
         pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 
         berrySpawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<BerrySpawn>();
+
+        tail = GameObject.FindGameObjectWithTag("Tail").GetComponent<Tail>();
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
@@ -37,6 +40,8 @@ public class PlayerCollision : MonoBehaviour
             pointManager.UpdateScore(1);
 
             Destroy(collision.collider.gameObject);
+
+            tail.AddLength();
 
             berrySpawn.SpawnBerries();
         }
