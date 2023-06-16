@@ -9,7 +9,7 @@ public class PlayerCollision : MonoBehaviour
 
     PointManager pointManager;
     BerrySpawn berrySpawn;
-    PauseMenu pauseMenu;
+    PauseMenu pause;
 
     private Shake shake;
 
@@ -23,6 +23,8 @@ public class PlayerCollision : MonoBehaviour
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
+        pause = GameObject.FindGameObjectWithTag("Finish").GetComponent<PauseMenu>();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,7 +33,9 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "Wall")
         {
             shake.CamShake();
-            Time.timeScale = 0;
+            pause.PauseGame();
+
+            //Time.timeScale = 0;
         }
 
         if(collision.collider.gameObject.tag == "Berry")
