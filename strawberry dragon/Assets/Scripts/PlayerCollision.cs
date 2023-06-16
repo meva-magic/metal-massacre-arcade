@@ -9,7 +9,6 @@ public class PlayerCollision : MonoBehaviour
 
     PointManager pointManager;
     BerrySpawn berrySpawn;
-    Tail tail;
     PauseMenu pauseMenu;
 
     private Shake shake;
@@ -21,8 +20,6 @@ public class PlayerCollision : MonoBehaviour
         pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 
         berrySpawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<BerrySpawn>();
-
-        tail = GameObject.FindGameObjectWithTag("Tail").GetComponent<Tail>();
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
@@ -46,8 +43,6 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(bloodStain, transform.position, Quaternion.identity);
 
             Destroy(collision.collider.gameObject);
-
-            tail.AddLength();
 
             berrySpawn.SpawnBerries();
         }
