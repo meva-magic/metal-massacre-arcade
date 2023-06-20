@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        TitleMenu();
+        Title.SetActive(true);
     }
 
     void Update()
@@ -27,7 +27,6 @@ public class PauseMenu : MonoBehaviour
             {
                 ResumeGame();
             }
-
             else
             {
                 PauseGame();
@@ -38,9 +37,26 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        Pause.SetActive(true);
-        Berry.SetActive(false);
+        Title.SetActive(false);
+        Pause.SetActive(true);        
         isPaused = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        Pause.SetActive(false);
+        GameOver.SetActive(false);
+        Berry.SetActive(true);
+        isPaused = false;  
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
+        Title.SetActive(false);
+        Berry.SetActive(true);
+        isPaused = false;
     }
 
     public void GameOvered()
@@ -51,26 +67,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        Pause.SetActive(false);
-        Title.SetActive(false);
-        GameOver.SetActive(false);
-        Berry.SetActive(true);
-        isPaused = false;  
-    }
-
     public void RestartGame()
     {
         SceneManager.LoadScene("SampleScene");
     }
-
-    public void TitleMenu()
-    {
-        Time.timeScale = 0;
-        Title.SetActive(true);
-        isPaused = true;
-    }
-
 }
