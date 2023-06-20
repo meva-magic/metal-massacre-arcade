@@ -9,27 +9,11 @@ public class Restart : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1;
-
         pause = GameObject.FindGameObjectWithTag("Finish").GetComponent<PauseMenu>();
-    }
-
-    public void StartButton()
-    {
-        Title.SetActive(false);
-        pause.ResumeGame();
-        Berry.SetActive(true);
     }
 
     public void RestartButton()
     {
-        SceneManager.LoadScene("SampleScene");
-        pause.ResumeGame();
-    }
-
-    public void ExitButton()
-    {
-        Title.SetActive(true);
-        pause.PauseGame();
+        pause.RestartGame();
     }
 }

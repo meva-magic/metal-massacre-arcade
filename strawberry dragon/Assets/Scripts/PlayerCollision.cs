@@ -16,7 +16,6 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
 
-
         pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
 
         berrySpawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<BerrySpawn>();
@@ -33,9 +32,7 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "Wall")
         {
             shake.CamShake();
-            pause.PauseGame();
-
-            //Time.timeScale = 0;
+            pause.GameOvered();
         }
 
         if(collision.collider.gameObject.tag == "Berry")
