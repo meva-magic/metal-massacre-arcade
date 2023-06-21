@@ -15,8 +15,8 @@ public class PointManager : MonoBehaviour
     void Start()
     {
         scoreText.text = "" + score;
-        finalScoreText.text = "" + score;
-        highScoreText.text = "" + score;
+        //finalScoreText.text = "" + score;
+        //highScoreText.text = "" + score;
     }
 
     public void UpdateScore(int points)

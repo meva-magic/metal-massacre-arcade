@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9136235102956159332}
   m_Layer: 0
   m_Name: BigBerry
-  m_TagString: Berry
+  m_TagString: BigBerry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

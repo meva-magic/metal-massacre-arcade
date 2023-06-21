@@ -16,14 +16,13 @@ public class PlayerCollision : MonoBehaviour
     private void Start()
     {
 
-        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+        pointManager = GameObject.FindGameObjectWithTag("Point").GetComponent<PointManager>();
 
         berrySpawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<BerrySpawn>();
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         pause = GameObject.FindGameObjectWithTag("Finish").GetComponent<PauseMenu>();
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +30,7 @@ public class PlayerCollision : MonoBehaviour
 
         if(collision.collider.gameObject.tag == "Wall")
         {
+            Instantiate(effect, transform.position, Quaternion.identity);
             shake.CamShake();
             pause.GameOvered();
         }
@@ -39,29 +39,38 @@ public class PlayerCollision : MonoBehaviour
         {   
             shake.CamShake();
             Instantiate(effect, transform.position, Quaternion.identity);
-            //Instantiate(bloodStain, transform.position, Quaternion.identity);
+            pointManager.UpdateScore(1);
+            berrySpawn.SpawnBerries();
+
+            Destroy(collision.collider.gameObject);
+
             for ( int i = 0; i < 10000000; i++)
             {    
-                var spawn = Random.Range(0, bloodStains.Count);
+                var spawn = Random.Range(0, 2);
                 Instantiate(bloodStains[i], transform.position, Quaternion.identity);
             }
 
-            pointManager.UpdateScore(1);
-            DestroyObjects("Berry");
-            berrySpawn.SpawnBerries();
+
         }
 
         if(collision.collider.gameObject.tag == "BigBerry")
         {   
             shake.CamShake();
             Instantiate(effect, transform.position, Quaternion.identity);
-            Instantiate(bloodStain, transform.position, Quaternion.identity);
-
             pointManager.UpdateScore(5);
-            DestroyObjects("BigBerry");
             berrySpawn.SpawnBerries();
+
+            Destroy(collision.collider.gameObject);
+
+            for ( int i = 0; i < 10000000; i++)
+            {    
+                var spawn = Random.Range(0, 2);
+                Instantiate(bloodStains[i], transform.position, Quaternion.identity);
+            }
+
         }
 
+/*
         void DestroyObjects(string tag)
         {
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
@@ -70,5 +79,6 @@ public class PlayerCollision : MonoBehaviour
                 GameObject.Destroy(target);
             }
         }
+*/
     }
 }

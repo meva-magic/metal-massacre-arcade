@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 477699881}
   m_Layer: 0
   m_Name: PointManager
-  m_TagString: Untagged
+  m_TagString: Point
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2860,7 +2860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 8095857459502693665, guid: a3db0e7a7e3658548aedee216efbe9a9, type: 3}
-  bloodStain: {fileID: 7181266586561209692, guid: c78d4eaf0e7dd2d4287b4e99fe0fe8e9, type: 3}
+  bloodStains:
+  - {fileID: 7181266586561209692, guid: c78d4eaf0e7dd2d4287b4e99fe0fe8e9, type: 3}
+  - {fileID: 7181266586561209692, guid: c78d4eaf0e7dd2d4287b4e99fe0fe8e9, type: 3}
 --- !u!50 &1783318945
 Rigidbody2D:
   serializedVersion: 4

@@ -24,13 +24,13 @@ public class BerrySpawn : MonoBehaviour
         {
             if (pointManager.score % 7 == 0)
             {
-                var spawn = Random.Range(0, spawnPoints.Count);
+                var spawn = Random.Range(0, 1);
                 Instantiate(bigBerries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
             }
 
-            if (pointManager.score % 7 != 0)
+            if (pointManager.score % 7 != 0 && pointManager.score != 0)
             {
-                var spawn = Random.Range(0, 10000000);
+                var spawn = Random.Range(0, 1);
                 Instantiate(berries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
             }
         }

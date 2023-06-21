@@ -9,6 +9,7 @@ TagManager:
   - ScreenShake
   - Tail
   - BigBerry
+  - Point
   layers:
   - Default
   - TransparentFX
