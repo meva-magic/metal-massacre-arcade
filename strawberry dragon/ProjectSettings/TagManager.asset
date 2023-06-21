@@ -8,6 +8,7 @@ TagManager:
   - Berry
   - ScreenShake
   - Tail
+  - BigBerry
   layers:
   - Default
   - TransparentFX

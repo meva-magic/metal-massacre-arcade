@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
+    public float turnSpeed;
+
     private Rigidbody2D rb;
     Vector3 lastVelocity;
 
@@ -23,6 +25,7 @@ public class Bounce : MonoBehaviour
 
     void Update()
     {
+        transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
         lastVelocity =rb.velocity;
     }
 }

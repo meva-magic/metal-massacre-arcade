@@ -19,56 +19,19 @@ public class PauseMenu : MonoBehaviour
         Title.SetActive(true);
     }
 
-    void Update()
-    {
-        if(Input.GetButtonDown("Pause"))
-        {
-            if(isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-    }
-
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-        Title.SetActive(false);
-        Pause.SetActive(true);        
-        isPaused = true;
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        Pause.SetActive(false);
-        GameOver.SetActive(false);
-        Berry.SetActive(true);
-        isPaused = false;  
-    }
-
     public void StartGame()
     {
         Time.timeScale = 1;
         Title.SetActive(false);
         Berry.SetActive(true);
-        isPaused = false;
     }
 
     public void GameOvered()
     {
         Time.timeScale = 0;
         Berry.SetActive(false);
-        GameOver.SetActive(true);
-        isPaused = true;
-    }
-
-    public void RestartGame()
-    {
+        Title.SetActive(true);
         SceneManager.LoadScene("SampleScene");
     }
+
 }
