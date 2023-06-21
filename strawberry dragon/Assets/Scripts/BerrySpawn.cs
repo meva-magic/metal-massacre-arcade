@@ -13,6 +13,7 @@ public class BerrySpawn : MonoBehaviour
     public void Start()
     {
         pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+        pointManager.score = 0;
 
         spawnPoints = new List<Transform>(spawnPoints);
         SpawnBerries();
@@ -22,17 +23,25 @@ public class BerrySpawn : MonoBehaviour
     {
         for ( int i = 0; i < 10000000; i++)
         {
-            if (pointManager.score % 7 == 0)
+            if (pointManager.score == 0)
             {
-                var spawn = Random.Range(0, 1);
+                var spawn = Random.Range(0, spawnPoints.Count);
+                Instantiate(berries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
+            }
+
+            if (pointManager.score % 7 == 0 && pointManager.score != 0)
+            {
+                var spawn = Random.Range(0, spawnPoints.Count);
                 Instantiate(bigBerries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
             }
 
-            if (pointManager.score % 7 != 0 && pointManager.score != 0)
+            if (pointManager.score % 7 != 0)
             {
-                var spawn = Random.Range(0, 1);
+                var spawn = Random.Range(0, spawnPoints.Count);
                 Instantiate(berries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
             }
+
+            
         }
         
     }

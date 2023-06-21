@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public GameObject effect;
-    public GameObject[] bloodStains;
+    public GameObject bloodStain;
+    public GameObject bigBloodStain;
 
     PointManager pointManager;
     BerrySpawn berrySpawn;
@@ -39,17 +40,12 @@ public class PlayerCollision : MonoBehaviour
         {   
             shake.CamShake();
             Instantiate(effect, transform.position, Quaternion.identity);
-            pointManager.UpdateScore(1);
-            berrySpawn.SpawnBerries();
+            Instantiate(bloodStain, transform.position, Quaternion.identity);
 
+            pointManager.UpdateScore(1);
             Destroy(collision.collider.gameObject);
 
-            for ( int i = 0; i < 10000000; i++)
-            {    
-                var spawn = Random.Range(0, 2);
-                Instantiate(bloodStains[i], transform.position, Quaternion.identity);
-            }
-
+            berrySpawn.SpawnBerries();
 
         }
 
@@ -57,17 +53,12 @@ public class PlayerCollision : MonoBehaviour
         {   
             shake.CamShake();
             Instantiate(effect, transform.position, Quaternion.identity);
+            Instantiate(bigBloodStain, transform.position, Quaternion.identity);
+
             pointManager.UpdateScore(5);
-            berrySpawn.SpawnBerries();
-
             Destroy(collision.collider.gameObject);
-
-            for ( int i = 0; i < 10000000; i++)
-            {    
-                var spawn = Random.Range(0, 2);
-                Instantiate(bloodStains[i], transform.position, Quaternion.identity);
-            }
-
+            
+            berrySpawn.SpawnBerries();
         }
 
 /*
