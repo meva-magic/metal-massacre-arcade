@@ -7,12 +7,29 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     LeaderBoard leaderBoard;
+    public TMP_InputField playerNameInputfield;
 
     void Start()
     {
         StartCoroutine(SetupRoutine());
 
         leaderBoard = GameObject.FindGameObjectWithTag("Leader").GetComponent<LeaderBoard>();
+    }
+
+    public void SetPlayerName()
+    {
+        LootLockerSDKManager.SetPlayerName(playerNameInputfield.text, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("Succesfully set player name");
+            }
+
+            else
+            {
+                Debug.Log("Could not set player name" + response.Error);
+            }
+        });
     }
 
     IEnumerator LoginRoutine()
