@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
   m_Name: LootLockerConfig
   m_EditorClassIdentifier: 
-  apiKey: dev_54d04887375041b5a282139f29d8248a
-  token: 7e2396570edf01fedcd9ac4bd342f58d73617128
+  apiKey: prod_201abd361e4c44c1ab711eb2532a9027
+  token: f4d70aa75490444de086aec8e47b3f54161f9eb8
   adminToken: 
   refreshToken: 
   domainKey: 

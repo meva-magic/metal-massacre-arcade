@@ -17,7 +17,7 @@ public class PlayerCollision : MonoBehaviour
     PointManager pointManager;
     BerrySpawn berrySpawn;
     PauseMenu pause;
-    HealthBar healthbar;
+    HealthBar healthBar;
 
     private Shake shake;
 
@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
 
         pause = GameObject.FindGameObjectWithTag("Finish").GetComponent<PauseMenu>();
 
-        healthbar = GameObject.FindGameObjectWithTag("Health").GetComponent<HealthBar>();
+        healthBar = GameObject.FindGameObjectWithTag("Health").GetComponent<HealthBar>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -56,6 +56,7 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(bloodStain, transform.position, Quaternion.identity);
 
             pointManager.UpdateScore(1);
+            healthBar.HP = 100f;
             boom = 10;
 
             Destroy(collision.collider.gameObject);
@@ -65,12 +66,13 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "BigBerry")
         {   
             shake.CamShake();
-            healthbar.DropTimer();
 
             Instantiate(effect, transform.position, Quaternion.identity);
             Instantiate(bigBloodStain, transform.position, Quaternion.identity);
 
             pointManager.UpdateScore(5);
+            boom = 10;
+
             Destroy(collision.collider.gameObject);
             
             berrySpawn.SpawnBerries();
