@@ -11,6 +11,7 @@ public class HealthBar : MonoBehaviour
     public float bops;
 
     PlayerCollision player;
+    PointManager pointManager;
 
     public void Start()
     {
@@ -18,22 +19,33 @@ public class HealthBar : MonoBehaviour
         HP = maxHealth;
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCollision>();
+        pointManager = GameObject.FindGameObjectWithTag("Point").GetComponent<PointManager>();
     }
 
     public void DropTimer()
     {
-        HP = maxHealth;
-        healthBar.fillAmount = HP / maxHealth;
+        HP = 100f;
     }
 
     void Update()
     {
-        HP -= 6 * Time.deltaTime;
-        healthBar.fillAmount = HP / maxHealth;
-
         if (HP <= 0)
         {
             player.GameOvered();
+        }
+
+        if (player.boom == 10)
+        {
+            DropTimer();
+            HP = 100f;
+            healthBar.fillAmount = HP / maxHealth;
+            player.boom = 0;
+        }
+
+        else
+        {
+            HP -= 6 * Time.deltaTime;
+            healthBar.fillAmount = HP / maxHealth;
         }
     }
 }

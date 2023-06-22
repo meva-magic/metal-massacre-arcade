@@ -21,6 +21,8 @@ public class PlayerCollision : MonoBehaviour
 
     private Shake shake;
 
+    public int boom = 0;
+
     private void Start()
     {
         leaderBoard = GameObject.FindGameObjectWithTag("Leader").GetComponent<LeaderBoard>();
@@ -54,17 +56,16 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(bloodStain, transform.position, Quaternion.identity);
 
             pointManager.UpdateScore(1);
+            boom = 10;
+
             Destroy(collision.collider.gameObject);
-
             berrySpawn.SpawnBerries();
-            healthbar.DropTimer();
-
         }
 
         if(collision.collider.gameObject.tag == "BigBerry")
         {   
             shake.CamShake();
-            //healthbar.DropTimer();
+            healthbar.DropTimer();
 
             Instantiate(effect, transform.position, Quaternion.identity);
             Instantiate(bigBloodStain, transform.position, Quaternion.identity);
