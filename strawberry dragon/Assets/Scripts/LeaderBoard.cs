@@ -1,43 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LootLocker.Requests;
 using TMPro;
-using Dan.Main;
 
 public class LeaderBoard : MonoBehaviour
 {
-    [SerializeField]
-    public List<TextMeshProUGUI> names;
+    int LeaderboardID = 15525;
 
-    [SerializeField]
-    public List<TextMeshProUGUI> scores;
-
-    private string  publicLeaderboardKey = "1a24fba2377b252a8eecd72fd5cd0aef8825eb081b7173da194256d854e34d9d";
-
+    public TextMeshProUGUI playerNames;
+    public TextMeshProUGUI playerScores;
+    
     void Start()
     {
-        GetLeaderboard();
+        
     }
 
-    public void GetLeaderboard()
+    public IEnumerator SubmitScoreRoutine(int scoreaToUpload)
     {
-        LeaderboardCreator.GetLeaderboard(publicLeaderboardKey, ((msg) => 
+        bool done = false;
+        string playerID = PlayerPrefs.GetString("PlayerID");
+        LootLockerSDKManager.SubmitScore(playerID, scoreaToUpload, LeaderboardID, (response) =>
         {
-            int loopLength = (msg.Length < names.Count) ? msg.Length : names.Count;
-            for (int i = 0; i < loopLength; ++i)
+            if (response.success)
             {
-                names[i].text = msg[i].Username;
-                scores[i].text =  msg[i].Score.ToString();
+                Debug.Log("Successfully uploaded score");
+                done = true;
             }
-        }));
+
+            else
+            {
+                Debug.Log("Failed" + response.Error);
+                done = true;
+            }
+        });
+
+        yield return new WaitWhile(() => done == false);
     }
 
-    public void SetLeaderboardEntry(string username, int score)
+    public IEnumerator FetchTopHighscoresRoutine()
     {
-        LeaderboardCreator.UploadNewEntry(publicLeaderboardKey, username, score, ((msg) => 
+        bool done = false;
+        LootLockerSDKManager.GetScoreListMain(LeaderboardID, 10, 0, (response) =>
         {
-            //username.Substring(0, 9);
-            GetLeaderboard();
-        }));
+            if(response.success)
+            {
+                string tempPlayerNames = "Names\n";
+                string tempPlayerScores = "Scores\n";
+
+                LootLockerLeaderboardMember[] members = response.items;
+
+                for (int i = 0; i < members.Length; i++)
+                {
+                    tempPlayerNames += members[i].rank + ". ";
+                    if(members[i].player.name != "")
+                    {
+                        tempPlayerNames += members[i].player.name;
+                    }
+                    else
+                    {
+                        tempPlayerNames += members[i].player.id;
+                    }
+                    tempPlayerScores += members[i].score + "\n";
+                    tempPlayerNames += "\n";
+                }
+                done = true;
+                playerNames.text = tempPlayerNames;
+                playerScores.text = tempPlayerScores;
+            }
+            else
+            {
+                Debug.Log("Failed" + response.Error);
+                done = true;
+            }
+        });
+        yield return new WaitWhile(() => done == false);
     }
 }

@@ -10,6 +10,8 @@ TagManager:
   - Tail
   - BigBerry
   - Point
+  - Health
+  - Leader
   layers:
   - Default
   - TransparentFX
