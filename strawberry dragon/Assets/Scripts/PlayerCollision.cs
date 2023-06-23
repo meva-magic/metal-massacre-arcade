@@ -54,7 +54,7 @@ public class PlayerCollision : MonoBehaviour
 
             Instantiate(effect, transform.position, Quaternion.identity);
             Instantiate(bloodStain, transform.position, Quaternion.identity);
-
+            
             pointManager.UpdateScore(1);
             healthBar.HP = 100f;
             boom = 10;
