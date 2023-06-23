@@ -6,16 +6,11 @@ using TMPro;
 
 public class LeaderBoard : MonoBehaviour
 {
-    int LeaderboardID = 15536;
+    int LeaderboardID = 15525;
 
     public TextMeshProUGUI playerNames;
     public TextMeshProUGUI playerScores;
     
-    void Start()
-    {
-        
-    }
-
     public IEnumerator SubmitScoreRoutine(int scoreaToUpload)
     {
         bool done = false;

@@ -40,9 +40,6 @@ public class BerrySpawn : MonoBehaviour
                 var spawn = Random.Range(0, spawnPoints.Count);
                 Instantiate(berries[i], spawnPoints[spawn].transform.position, Quaternion.identity);
             }
-
-            
         }
-        
     }
 }

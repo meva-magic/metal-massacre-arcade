@@ -21,23 +21,4 @@ public class PointManager : MonoBehaviour
         score += points;
         scoreText.text = "" + score;
     }
-
-    public void highScoreUpdate()
-    {
-        if (PlayerPrefs.HasKey("SavedHighScore"))
-        {
-            if (score > PlayerPrefs.GetInt("SavedHighScore"))
-            {
-                PlayerPrefs.SetInt("SavedHighScore", score);
-            }
-        }
-
-        else
-        {
-            PlayerPrefs.SetInt("SavedHighScore", score);
-        }
-
-        finalScoreText.text = score.ToString();
-        //highScoreText.text = PlayerPrefs.GetInt("SavedHighScore").ToString();
-    }
 }

@@ -44,7 +44,7 @@ public class HealthBar : MonoBehaviour
 
         else
         {
-            HP -= 6 * Time.deltaTime;
+            HP -= 5 * Time.deltaTime;
             healthBar.fillAmount = HP / maxHealth;
         }
     }

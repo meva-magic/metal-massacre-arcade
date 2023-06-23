@@ -20,8 +20,6 @@ public class Tail : MonoBehaviour
 
     public Transform tailEnd;
     
-    //public Transform[] bodyParts;
-
     public Vector3[] segmentPoses;
     private Vector3[] segmentV;
 

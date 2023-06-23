@@ -71,6 +71,7 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(bigBloodStain, transform.position, Quaternion.identity);
 
             pointManager.UpdateScore(5);
+            healthBar.HP = 100f;
             boom = 10;
 
             Destroy(collision.collider.gameObject);
@@ -82,10 +83,15 @@ public class PlayerCollision : MonoBehaviour
     public void GameOvered()
     {
         Time.timeScale = 0;
+        StartCoroutine(DieRoutine());
         Berry.SetActive(false);
         Title.SetActive(true);
-        StartCoroutine(DieRoutine());
         SceneManager.LoadScene("SampleScene");
+    }
+
+    public void SpawnBlood()
+    {
+        
     }
 
     public IEnumerator DieRoutine()

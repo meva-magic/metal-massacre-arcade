@@ -19,7 +19,6 @@ public class Hair : MonoBehaviour
     public Vector3[] segmentPoses;
     private Vector3[] segmentV;
 
-
     private void Start()
     {
         lineRend.positionCount = length;
@@ -37,8 +36,6 @@ public class Hair : MonoBehaviour
         {
             segmentPoses[i] = Vector3.SmoothDamp(segmentPoses[i], segmentPoses[i - 1] + targetDir.right * targetDist, ref segmentV[i], smoothSpeed + i / trailSpeed);
         }
-
         lineRend.SetPositions(segmentPoses);
-
     }
 }
