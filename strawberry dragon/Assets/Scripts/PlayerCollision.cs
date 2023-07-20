@@ -51,6 +51,7 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "Berry")
         {   
             shake.CamShake();
+            AudioManager.instance.Play("Pickup");
 
             Instantiate(effect, transform.position, Quaternion.identity);
             Instantiate(bloodStain, transform.position, Quaternion.identity);
@@ -66,6 +67,7 @@ public class PlayerCollision : MonoBehaviour
         if(collision.collider.gameObject.tag == "BigBerry")
         {   
             shake.CamShake();
+            AudioManager.instance.Play("Pickup");
 
             Instantiate(effect, transform.position, Quaternion.identity);
             Instantiate(bigBloodStain, transform.position, Quaternion.identity);
